@@ -204,7 +204,7 @@ body {
     display: flex;
     justify-content: center;
     cursor: pointer;
-    border: 1px solid #4d55e2;
+    border: 1px solid #7ba0e6;
     background-color: #7f9dea;
     font-size: 1rem;
     transition: background-color 0.2s, transform 0.2s;
@@ -221,7 +221,7 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: 1px solid #4d55e2;
+    border: 1px solid #7ba0e6;
     background-color: #7f9dea;
     transition: background-color 0.2s, transform 0.2s;
 }
