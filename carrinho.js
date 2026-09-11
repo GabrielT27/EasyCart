@@ -1,173 +1,127 @@
 
-window.onload = carrinho 
+window.onload = carrinho
 
-let produtos = JSON.parse(
+// Lê o carrinho direto do localStorage para sempre usar o estado mais recente.
+function getCarrinho() {
+    return JSON.parse(localStorage.getItem("carrinho")) || [] // Se não existir nada salvo, cria um array vazio
 
-        // transforma o JSON em array novamente
-        // Busca os dados salvos na chave "carrinho" na home.js
-        localStorage.getItem("carrinho")
+}
 
-    ) || [] // Se não existir nada salvo, cria um array vazio
+// Renderiza os itens do carrinho e recalcula o total com base na quantidade atual.
+function renderCarrinho() {
+    const produtos = getCarrinho()
+    const listaProdutos = document.querySelector(".listaProdutos")
 
-    console.log(produtos)
+    // Se não houver lista, encerra a função para evitar erro.
+    if (!listaProdutos) return
 
-function carrinho() {
+    let totalPrecoCarrinho = 0
 
-    
+    // Soma o total do carrinho usando o preço e a quantidade em tempo real.
+    produtos.forEach(produto => {
+        totalPrecoCarrinho += Number(produto.preco || 0) * Number(produto.quantidade || 0)
+    })
 
-let listaProdutos = document.querySelector(".listaProdutos")  // Cria uma variável que guarda a referência da div com a classe "listaProdutos" para que ela possa ser manipulada pelo JavaScript
+    // Cria o HTML dos produtos com preço unitário e total individual calculados dinamicamente.
+    listaProdutos.innerHTML = produtos.map(produto => {
+        const precoTotal = Number(produto.preco || 0) * Number(produto.quantidade || 0)
 
-produtos.forEach (produto => {   // ARROW FUNCTION para cada produto dentro do array produtos
-    listaProdutos.innerHTML +=  // Adiciona um novo bloco de HTML dentro da div listaProdutos
+        return `
+            <div class="imagin">
+                <div class="fundoPro">
+                    <img src="${produto.imgProduto}" class="fotoPro">
 
+                    <div class="hiscrita">
+                        <p class="nomeProduto pe">
+                            Nome: ${produto.nome}
+                        </p>
 
+                        <div class="inputin">
+                            <p class="preco pe">Quantidade: </p>
 
+                            <button onclick="subQtd(this)" class="subQtd menos">-</button>
 
-    ` 
-    <div class="imagin">  
-    
-    <div class="fundoPro">
+                            <input class="qtd"
+                                type="number"
+                                value="${produto.quantidade}"
+                                onchange="atualizarQuantidade('${produto.nome}', this)">
 
-    <img src="${produto.imgProduto}" class="fotoPro">
+                            <button onclick="addQtd(this)" class="addQtd mais">+</button>
+                        </div>
 
-    
+                        <p class="preco pe">
+                            Preço Unitário: ${Number(produto.preco).toFixed(2)} R$
+                        </p>
 
-    <div class="hiscrita">
+                        <p class="preco pe">
+                            Preço Total: ${precoTotal.toFixed(2)} R$
+                        </p>
 
-        <p class="nomeProduto pe">
-            Nome: ${produto.nome}
-        </p>
-
-            <div class="inputin">
-            <p class="preco pe">
-                Quantidade: 
-            </p>
-
-                    <button onclick="subQtd(this)" class="subQtd menos" >
-                        -
-                    </button>
-
-                    <input class="qtd" 
-                    type="number" 
-                    value="${produto.quantidade}"
-                    onchange="atualizarQuantidade('${produto.nome}', this)">
-
-                    <button onclick="addQtd(this)" class="addQtd mais">
-                        +
-                    </button>
-
+                        <button onclick="limparProduto(this, '${produto.nome}')" class="removerItem">
+                            Remover Item
+                        </button>
+                    </div>
                 </div>
-
-        <p class="preco pe">
-            Preço Unitário: ${produto.preco} R$
-        </p>
-
-        <p class= "preco pe">
-            Preço Total: ${(produto.quantidade * produto.preco)} R$
-        </p>
-
-        <button onclick="limparProduto(this, 
-            '${produto.nome}') " class="removerItem">
-                Remover Item
-            </button>
-
             </div>
-
-            
-
-
-    </div>
-    </div>
-
+        `
+    }).join("") + `
+        <p class="precoTotal">
+            <button class="removerItem">Continuar</button>
+            Preço Total: R$ ${totalPrecoCarrinho.toFixed(2)}
+        </p>
     `
-
-})
 }
 
+// Chama a renderização do carrinho ao carregar a página.
+function carrinho() {
+    renderCarrinho()
+}
 
-
-
-
+// Aumenta a quantidade e dispara o evento de mudança para atualizar o carrinho.
 function addQtd(botao) {
-    let input = botao.parentElement.querySelector(".qtd");
-
-    input.value = Number(input.value) + 1;
-
-    input.dispatchEvent(new Event("change"));
+    const input = botao.parentElement.querySelector(".qtd")
+    input.value = Number(input.value || 0) + 1
+    input.dispatchEvent(new Event("change"))
 }
 
+// Diminui a quantidade e também dispara o evento para re-renderizar com o novo valor.
 function subQtd(botao) {
-    let input = botao.parentElement.querySelector(".qtd");
-
-    if (Number(input.value) > 1) {
-        input.value = Number(input.value) - 1;
-    }
-
-
-    input.dispatchEvent(new Event("change")); 
-    
-    // Garante que o onchange seja executado mesmo quando
-// o valor do input é alterado via JavaScript
-// "Javascript alterou o valor, mas quero que você se comporte como se o usuário tivesse alterado e faça o "change" do mesmo jeito ."
+    const input = botao.parentElement.querySelector(".qtd")
+    const valorAtual = Number(input.value || 0)
+    const novoValor = valorAtual > 1 ? valorAtual - 1 : 0
+    input.value = novoValor
+    input.dispatchEvent(new Event("change"))
 }
 
-
+// Atualiza a quantidade do produto no localStorage e recalcula o valor total.
 function atualizarQuantidade(nomeProduto, input) {
+    const novaQuantidade = Math.max(0, Number(input.value) || 0)
+    const carrinho = getCarrinho()
+    const produto = carrinho.find(item => item.nome === nomeProduto)
 
-    // Pega o valor digitado no input e transforma em número
-    let novaQuantidade = Number(input.value)
+    // Se o produto não existir, interrompe a atualização.
+    if (!produto) return
 
-    // Busca o carrinho salvo no Local Storage
-    // Se não existir, cria um array vazio
-    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || []
-
-    // Procura no carrinho o produto que tem o mesmo nome
-    let produto = carrinho.find(produto => {
-        return produto.nome === nomeProduto
-    })
-
-    // Atualiza a quantidade do produto
     produto.quantidade = novaQuantidade
+    produto.precoTotal = Number(produto.preco) * novaQuantidade
 
-    // Recalcula o preço total do produto
-    // Preço unitário × quantidade
-    produto.precoTotal = produto.preco * novaQuantidade
-
-    // Salva o carrinho atualizado novamente no Local Storage
-    localStorage.setItem(
-        "carrinho",
-        JSON.stringify(carrinho)
-    )
-
-    // Recarrega a página para mostrar os novos valores
-    location.reload()
+    localStorage.setItem("carrinho", JSON.stringify(carrinho))
+    renderCarrinho()
 }
 
-
-
- 
-function limparCarrinho () {
+// Limpa todo o carrinho e renderiza a tela sem itens.
+function limparCarrinho() {
     localStorage.removeItem("carrinho")
-    window.location.reload()
+    renderCarrinho()
 }
 
+// Remove apenas o item selecionado e atualiza o carrinho.
 function limparProduto(botao, nomeProduto) {
-        
-    let novoCarrinho = produtos.filter( produto => {
-        return produto.nome !== nomeProduto
-    })
+    const novoCarrinho = getCarrinho().filter(produto => produto.nome !== nomeProduto)
 
-    localStorage.setItem (
-        "carrinho",
-        JSON.stringify(novoCarrinho)
-    )
-
-    console.log("CLICOU")
-    console.log(novoCarrinho)
-
-    window.location.reload()
-
+    localStorage.setItem("carrinho", JSON.stringify(novoCarrinho))
     
+    renderCarrinho()
 }
 
 

@@ -8,7 +8,7 @@ body {
 }
 
 nav {
-    background-color: rgb(35, 133, 26);
+    background-color: rgb(27, 114, 19);
     width: 100%;
     padding: 2.2em;
     
@@ -89,7 +89,7 @@ nav {
 }
 
 .hiscrita:hover {
-    background-color: rgb(132, 172, 86);
+    background-color: rgb(111, 168, 46);
     padding: 0.5rem;
     border-radius: 2rem;
     text-decoration: underline;
