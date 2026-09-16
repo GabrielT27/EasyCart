@@ -1,16 +1,19 @@
 
-window.onload = carrinho
+window.onload = carrinho // Traz todos dados armazenados no localStorage com nome "carrinho" da home, onde os dados da compra foram armzazenados
 
-// Lê o carrinho direto do localStorage para sempre usar o estado mais recente.
-function getCarrinho() {
+
+function getCarrinho() { // Lê o carrinho direto do localStorage para sempre usar o estado mais recente.
+
     return JSON.parse(localStorage.getItem("carrinho")) || [] // Se não existir nada salvo, cria um array vazio
 
 }
 
-// Renderiza os itens do carrinho e recalcula o total com base na quantidade atual.
-function renderCarrinho() {
-    const produtos = getCarrinho()
-    const listaProdutos = document.querySelector(".listaProdutos")
+
+function renderCarrinho() { // Renderiza os itens do carrinho e recalcula o total com base na quantidade atual.
+
+    const produtos = getCarrinho() // Pega o array do carrinho e salva os dados na variável produtos.
+
+    const listaProdutos = document.querySelector(".listaProdutos") // Pega a div onde os produtos serão exibidos através do querySelector
 
     // Se não houver lista, encerra a função para evitar erro.
     if (!listaProdutos) return
