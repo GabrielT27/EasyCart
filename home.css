@@ -53,15 +53,15 @@ nav {
 .imgCa {
     margin-top: 2rem;
     border-radius: 50%;
-    width: 18vh;
-    height: 18vh;
+    width: 22vh;
+    height: 22vh;
     transition: 0.6s;
 }
 
 .imgCa:hover {
     border-radius: 50%;
-    width: 20vh;
-    height: 20vh;
+    width: 25vh;
+    height: 25vh;
     cursor: pointer;
     transition: 0.6s;
 }
@@ -74,8 +74,8 @@ nav {
 }
 
 .logo {
-    width: 2rem;
-    height: 2rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
 }
 
@@ -86,6 +86,7 @@ nav {
 
 .hiscrita {
     transition: 0.6s;
+    font-size: x-large;
 }
 
 .hiscrita:hover {
