@@ -90,13 +90,29 @@ nav {
 }
 
 .hiscrita:hover {
-    background-color: rgb(111, 168, 46);
+    background-color: rgb(54, 180, 35);
     padding: 0.5rem;
     border-radius: 2rem;
     text-decoration: underline;
     transition: 0.6s;
     cursor: pointer;
 }
+
+.individualCat {
+display: flex;
+flex-direction: column;
+text-align: center;
+justify-content: center;
+align-items: center;
+}
+
+.escritaCat {
+    margin-top: 1rem;
+    color: #2d2f2d;
+    font-size: 2.8vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 
 .ofertas {
     display: grid;
@@ -113,28 +129,26 @@ nav {
     align-items: end;
     justify-content: space-between;
     gap: 1rem;
-    margin-bottom: 1.5rem;
+   
 }
 
 .ofertasCabecalho h2 {
     margin: 0;
     font-size: clamp(1.8rem, 4vw, 2.7rem);
     font-family: Georgia, 'Times New Roman', serif;
+    margin-top: 1.2vh;
 }
 
 .eyebrow {
-    margin: 0 0 0.35rem;
+    margin: 0;
     color: #6a9e18;
     font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 0.12em;
     text-transform: uppercase;
+    
 }
 
-.ofertasContador {
-    color: #6e7469;
-    font-size: 0.9rem;
-}
 
 .produto {
     position: relative;
@@ -412,6 +426,77 @@ a {
     
 }
 
+
+/* FOOTER */
+
+.site-footer {
+    background: linear-gradient(180deg, #1b7213 0%, #14570d 100%);
+    color: #f5f7f1;
+    margin-top: 4rem;
+}
+
+.footer-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.footer-logo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+
+.footer-brand p {
+    margin: 0;
+    max-width: 22rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-links h4 {
+    margin: 0 0 0.6rem;
+    color: #e1f0c4;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+    padding: 1rem 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+/* FOOTER */
+
 @media (max-width: 700px) {
     .ofertas {
         margin-top: 2.5rem;
@@ -432,6 +517,10 @@ a {
 
     .imgProduto {
         height: 190px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
