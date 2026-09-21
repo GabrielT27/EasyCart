@@ -85,6 +85,8 @@ function renderCarrinho() { // Renderiza os itens do carrinho e recalcula o tota
 `
 }
 
+
+// ESTUDAR ESSA PARTE
 function gerarFormularioEntrega() {
     return `
         <div class="areaCheckout">
@@ -155,36 +157,72 @@ function gerarFormularioEntrega() {
                 <div class="blocoPagamento">
                     <h3 class="tituloCheckout tituloPagamento">Pagamento fictício</h3>
 
-                    <div class="linhaFormulario">
-                        <label class="campoFormulario">
-                            <span>Titular do cartão</span>
-                            <input id="titularCartao" type="text" placeholder="Ex: João da Silva" />
-                        </label>
+                        <div class="opcoesPagamento">
+                            <label class="opcaoPagamento">
+                                <input type="radio" name="formaPagamento" value="cartao" onchange="trocarFormaPagamento(this.value)" checked />
+                                <span class="conteudoOpcaoPagamento">
+                                    <strong>Cartão</strong>
+                                    <small>Crédito ou débito</small>
+                                </span>
+                            </label>
 
-                        <label class="campoFormulario">
-                            <span>Número do cartão</span>
-                            <input id="numeroCartao" type="text" placeholder="1234 5678 9012 3456" />
-                        </label>
+                            <label class="opcaoPagamento">
+                                <input type="radio" name="formaPagamento" value="pix" onchange="trocarFormaPagamento(this.value)" />
+                                <span class="conteudoOpcaoPagamento">
+                                    <strong>PIX</strong>
+                                    <small>Pagamento instantâneo</small>
+                                </span>
+                            </label>
+
+                            <label class="opcaoPagamento">
+                                <input type="radio" name="formaPagamento" value="boleto" onchange="trocarFormaPagamento(this.value)" />
+                                <span class="conteudoOpcaoPagamento">
+                                    <strong>Boleto</strong>
+                                    <small>Vencimento em 2 dias</small>
+                                </span>
+                            </label>
                     </div>
 
-                    <div class="linhaFormulario">
-                        <label class="campoFormulario">
-                            <span>CVV</span>
-                            <input id="cvvCartao" type="text" placeholder="123" />
-                        </label>
+                        <div id="dadosCartao" class="dadosPagamento">
+                            <div class="linhaFormulario">
+                                <label class="campoFormulario">
+                                    <span>Titular do cartão</span>
+                                    <input id="titularCartao" type="text" placeholder="Ex: João da Silva" />
+                                </label>
 
-                        <label class="campoFormulario">
-                            <span>Parcelas</span>
-                            <select id="parcelasCartao">
-                                <option value="">Selecione</option>
-                                <option value="1x sem juros">1x sem juros</option>
-                                <option value="2x sem juros">2x sem juros</option>
-                                <option value="3x sem juros">3x sem juros</option>
-                                <option value="4x com juros">4x com juros</option>
-                            </select>
-                        </label>
+                                <label class="campoFormulario">
+                                    <span>Número do cartão</span>
+                                    <input id="numeroCartao" type="text" placeholder="1234 5678 9012 3456" />
+                                </label>
+                            </div>
+
+                            <div class="linhaFormulario">
+                                <label class="campoFormulario">
+                                    <span>CVV</span>
+                                    <input id="cvvCartao" type="text" placeholder="123" />
+                                </label>
+
+                                <label class="campoFormulario">
+                                    <span>Parcelas</span>
+                                    <select id="parcelasCartao">
+                                        <option value="">Selecione</option>
+                                        <option value="1x sem juros">1x sem juros</option>
+                                        <option value="2x sem juros">2x sem juros</option>
+                                        <option value="3x sem juros">3x sem juros</option>
+                                        <option value="4x com juros">4x com juros</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="mensagemPix" class="mensagemPagamento" hidden>
+                            Depois de confirmar, seria gerado um código PIX fictício para este pedido.
+                        </div>
+
+                        <div id="mensagemBoleto" class="mensagemPagamento" hidden>
+                            Depois de confirmar, seria gerado um boleto fictício com vencimento em 2 dias.
+                        </div>
                     </div>
-                </div>
 
                 <div class="botaoArea">
                     <button class="botaoConfirmarPedido" onclick="finalizarPedido()">Confirmar compra</button>
@@ -194,32 +232,110 @@ function gerarFormularioEntrega() {
     `
 }
 
-function abrirFormularioEntrega() {
-    const listaProdutos = document.querySelector(".listaProdutos")
+// Declaração de uma função chamada 'trocarFormaPagamento' que recebe um parâmetro (formaPagamento)
+function trocarFormaPagamento(formaPagamento) { // Function para usuário escolher forma de pagamento
 
-    if (!listaProdutos) return
+    // Procura no documento HTML o elemento exato que possui o ID 'dadosCartao' e guarda esse bloco na constante 'dadosCartao'
+    const dadosCartao = document.querySelector("#dadosCartao") 
 
-    const areaCheckoutExistente = document.querySelector(".areaCheckout")
+    // Procura no documento HTML o elemento exacto que possui o ID 'mensagemPix' e guarda esse bloco na constante 'mensagemPix'
+    const mensagemPix = document.querySelector("#mensagemPix")
 
-    if (areaCheckoutExistente) {
-        areaCheckoutExistente.scrollIntoView({ behavior: "smooth", block: "start" })
-        return
+    // Procura no documento HTML o elemento exacto que possui o ID 'mensagemBoleto' e guarda esse bloco na constante 'mensagemBoleto'
+    const mensagemBoleto = document.querySelector("#mensagemBoleto")
+
+    // Início de uma validação de segurança (um 'if' de proteção)
+    // Se o cartão, o pix OU o boleto forem nulos/não existirem na tela, passará reto pela condição.
+    if (!dadosCartao || !mensagemPix || !mensagemBoleto) {
+        return // ...o código pára imediatamente aqui e sai da função para o navegador não arrebentar com erros.
     }
 
-    listaProdutos.insertAdjacentHTML("beforeend", gerarFormularioEntrega())
+    // Altera a propriedade .hidden (escondido: true ou false) do bloco do cartão
+    // O operador '!==' pergunta: "o que o utilizador escolheu é DIFERENTE de 'cartao'?"
+    // Se for diferente, o hidden fica 'true' (esconde). Se for igual, fica 'false' (mostra).
+    dadosCartao.hidden = formaPagamento !== "cartao"
+
+    // Faz exatamente a mesma pergunta, mas focada na opção "pix"
+    // Se o utilizador escolheu pix, isto da 'false' no hidden (mostra o pix) e 'true' nos outros.
+    mensagemPix.hidden = formaPagamento !== "pix"
+
+    // Faz exatamente a mesma pergunta, mas focada na opção "boleto"
+    // Se o utilizador escolheu boleto, isto dá 'false' no hidden (mostra o boleto) e 'true' nos outros.
+    mensagemBoleto.hidden = formaPagamento !== "boleto"
+    
 }
 
-function finalizarPedido() {
-    const camposObrigatorios = document.querySelectorAll(
-        ".campoFormulario input, .campoFormulario select"
-    )
 
-    const camposVazios = [...camposObrigatorios].filter(campo => campo.value.trim() === "")
+function abrirFormularioEntrega() {  // Cria uma função chamada abrirFormularioEntrega.
 
-    if (camposVazios.length > 0) {
-        alert("Preencha todos os dados de entrega e pagamento antes de confirmar a compra fictícia.")
+
+    const listaProdutos = document.querySelector(".listaProdutos") // Procura no HTML o primeiro elemento que possui a classe "listaProdutos". O elemento encontrado é armazenado na variável listaProdutos para podermos manipulá-lo depois.
+
+    if (!listaProdutos) 
+    // Verifica se listaProdutos NÃO foi encontrada.
+    // Caso não exista o elemento, a função é encerrada
+    // imediatamente com return para evitar erros.
+    return
+
+    const areaCheckoutExistente = document.querySelector(".areaCheckout")
+    // Procura no HTML um elemento com a classe "areaCheckout". Se encontrar, guarda o elemento. Se não encontrar, retorna null.
+
+    if (areaCheckoutExistente) {
+        // Verifica se a área de checkout foi encontrada.
+        // É equivalente a:
+        // if (areaCheckoutExistente !== null)
+
+        areaCheckoutExistente.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        })
+        // Faz a página rolar automaticamente até o elemento.
+        // scrollIntoView() = "leve a tela até este elemento"
+        // behavior: "smooth"
+        // Faz a rolagem ser suave, deslizando pela página.
+        // Sem isso:
+        // a página "teleporta" para o elemento.
+        // block: "start"
+        // Faz o elemento ficar alinhado no topo da área visível da tela.
+
         return
     }
+
+    listaProdutos.insertAdjacentHTML( // insertAdjacentHTML() insere HTML na página, mas não deixa exclusiva dela, como innerHtml, apenas acrescenta.
+
+        "beforeend",  // Inserir o conteúdo dentro da listaProdutos, logo antes da tag de fechamento.
+
+        gerarFormularioEntrega() // gerarFormularioEntrega() retorna
+    // uma string contendo todo o HTML do formulário.
+
+    )
+  
+}
+
+
+function finalizarPedido() {
+    const formaPagamento = document.querySelector("input[name='formaPagamento']:checked")?.value
+    const camposEndereco = document.querySelectorAll(
+        "#nomeCompleto, #telefoneUsuario, #ruaUsuario, #numeroUsuario, #bairroUsuario, #cidadeUsuario, #estadoUsuario, #cepUsuario"
+    )
+    const camposPagamento = formaPagamento === "cartao"
+        ? document.querySelectorAll("#titularCartao, #numeroCartao, #cvvCartao, #parcelasCartao")
+        : []
+
+    const camposVazios = [...camposEndereco, ...camposPagamento].filter(campo => campo.value.trim() === "")
+
+    if (!formaPagamento || camposVazios.length > 0) {
+        abrirModalDados(
+            !formaPagamento
+                ? "Escolha uma forma de pagamento para continuar."
+                : "Preencha todos os campos obrigatórios antes de confirmar a compra."
+        )
+
+        camposVazios[0]?.focus()
+        return
+    }
+
+
 
     const nome = document.querySelector("#nomeCompleto")?.value.trim() || "Cliente"
     const totalCarrinho = getCarrinho().reduce((total, produto) => {
@@ -243,6 +359,22 @@ function finalizarPedido() {
     }
 
     localStorage.removeItem("carrinho")
+}
+
+function abrirModalDados(mensagem) {
+    const modal = document.querySelector("#modalDadosIncorretos")
+    const mensagemModal = document.querySelector("#mensagemModalDados")
+
+    if (!modal || !mensagemModal) return
+
+    mensagemModal.textContent = mensagem
+    modal.hidden = false
+}
+
+function fecharModalDados() {
+    const modal = document.querySelector("#modalDadosIncorretos")
+
+    if (modal) modal.hidden = true
 }
 
 // Chama a renderização do carrinho ao carregar a página.

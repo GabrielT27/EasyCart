@@ -212,6 +212,66 @@
     margin-top: 0.3rem;
 }
 
+.opcoesPagamento {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.opcaoPagamento {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    min-height: 4.5rem;
+    padding: 0.85rem;
+    border: 1px solid #d5ddd0;
+    border-radius: 0.65rem;
+    background: #ffffff;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.opcaoPagamento:has(input:checked) {
+    border-color: #5d9b36;
+    background: #eef8e9;
+}
+
+.opcaoPagamento input {
+    width: auto;
+    height: auto;
+    margin-top: 0.2rem;
+    accent-color: #3b8d30;
+}
+
+.conteudoOpcaoPagamento {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    color: #263526;
+}
+
+.conteudoOpcaoPagamento small {
+    color: #687566;
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+.dadosPagamento {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.mensagemPagamento {
+    padding: 1rem;
+    border-radius: 0.55rem;
+    background: #ffffff;
+    border: 1px dashed #a9c79a;
+    color: #536151;
+    font-size: 0.9rem;
+}
+
 .botaoArea {
     display: flex;
     justify-content: flex-end;
@@ -249,6 +309,85 @@
     margin: 0;
     font-size: 1rem;
     line-height: 1.5;
+}
+
+.fundoModal {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(24, 35, 22, 0.58);
+}
+
+.fundoModal[hidden] {
+    display: none;
+}
+
+.modalDados {
+    position: relative;
+    width: min(25rem, 100%);
+    padding: 2rem 1.5rem 1.5rem;
+    border-radius: 0.9rem;
+    background: #ffffff;
+    box-shadow: 0 1rem 3rem rgba(22, 35, 20, 0.25);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.fecharModal {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.8rem;
+    border: none;
+    background: transparent;
+    color: #657062;
+    font-size: 1.7rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.iconeModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.7rem;
+    height: 2.7rem;
+    margin: 0 auto 0.9rem;
+    border-radius: 50%;
+    background: #fff1d6;
+    color: #bd7313;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.modalDados h2 {
+    margin: 0 0 0.6rem;
+    color: #263526;
+    font-size: 1.35rem;
+}
+
+.modalDados p {
+    margin: 0 0 1.3rem;
+    color: #697366;
+    line-height: 1.5;
+}
+
+.botaoModal {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: #3b8d30;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.botaoModal:hover {
+    background: #2d6f26;
 }
 
 .continuarButton {
@@ -454,6 +593,10 @@ input[type="number"] {
 
     .linhaFormulario {
         flex-direction: column;
+    }
+
+    .opcoesPagamento {
+        grid-template-columns: 1fr;
     }
 
     .campoFormulario,

@@ -36,6 +36,16 @@
 
     </div>
 
+    <div id="modalDadosIncorretos" class="fundoModal" hidden>
+        <div class="modalDados" role="dialog" aria-modal="true" aria-labelledby="tituloModalDados">
+            <button class="fecharModal" type="button" onclick="fecharModalDados()" aria-label="Fechar mensagem">&times;</button>
+            <div class="iconeModal">!</div>
+            <h2 id="tituloModalDados">Confira seus dados</h2>
+            <p id="mensagemModalDados">Preencha os campos obrigatórios antes de confirmar a compra.</p>
+            <button class="botaoModal" type="button" onclick="fecharModalDados()">Entendi</button>
+        </div>
+    </div>
+
     <script src="carrinho.js"></script>
 
 </body>
