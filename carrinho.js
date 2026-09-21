@@ -428,15 +428,21 @@ function finalizarPedido() {  // Cria a função finalizarPedido. Todo o código
 
     const listaProdutos = document.querySelector(".listaProdutos") // Pega o valor da div no html e salva como constante
 
-    if (listaProdutos) {
+    if (listaProdutos) { // Condição para buscar no html se existe essa div
+
         listaProdutos.innerHTML = `
+
             <div class="sucessoPedido">
-                <h2 class="tituloCheckout">Pedido fictício confirmado</h2>
+                <h2 class="tituloCheckout">Pedido Confirmado</h2>
+
+                // split() divide o valor do nome em arrays, [G, M, T], e pega o primeiro item [0], imprimindo só esse array.
                 <p class="textoPedido">Olá, ${nome.split(" ")[0]}! O seu pedido ${numeroPedido} foi registrado com sucesso.</p>
+
                 <p class="textoPedido">Valor total: R$ ${totalCarrinho.toFixed(2)}</p>
                 <p class="textoPedido">Status: Em separação para entrega.</p>
-                <p class="textoPedido">Observação: este é um fluxo simulado para demonstração do checkout.</p>
+                <p class="textoPedido">Observação: Este é um fluxo simulado para demonstração do checkout.</p>
             </div>
+
         `
     }
 
