@@ -86,7 +86,7 @@ function renderCarrinho() { // Renderiza os itens do carrinho e recalcula o tota
 }
 
 
-// ESTUDAR ESSA PARTE
+
 function gerarFormularioEntrega() {
     return `
         <div class="areaCheckout">
@@ -313,38 +313,120 @@ function abrirFormularioEntrega() {  // Cria uma função chamada abrirFormulari
 }
 
 
-function finalizarPedido() {
+function finalizarPedido() {  // Cria a função finalizarPedido. Todo o código dentro das chaves será executado quando essa função for chamada.
+    
+   
     const formaPagamento = document.querySelector("input[name='formaPagamento']:checked")?.value
-    const camposEndereco = document.querySelectorAll(
+
+     // Procura no HTML um input com name="formaPagamento" que esteja marcado (:checked). 
+    // O ?.value significa que se o elemento existir, pegue seu value
+    // Evita erro caso nenhum input esteja selecionado.
+
+
+   
+    
+    const camposEndereco = document.querySelectorAll( // querySelectorAll() retorna uma NodeList contendo todos os elementos encontrados. 
+
+    // NodeList é o nome dado ao resultado que o querySelectorAll() retorna.
+
+
+       
         "#nomeCompleto, #telefoneUsuario, #ruaUsuario, #numeroUsuario, #bairroUsuario, #cidadeUsuario, #estadoUsuario, #cepUsuario"
+
+        // procura no HTML os elementos que já existem com esses IDs e os coloca dentro de uma NodeList.
+
     )
+
+
+    // Cria a constante camposPagamento.
     const camposPagamento = formaPagamento === "cartao"
-        ? document.querySelectorAll("#titularCartao, #numeroCartao, #cvvCartao, #parcelasCartao")
+
+        // Verifica se a forma de pagamento escolhida foi cartão.
+        // Se for, busca os campos relacionados ao cartão.
+        ? document.querySelectorAll(
+
+        
+        // procura no HTML os elementos que já existem com esses IDs e os coloca dentro de uma NodeList.
+
+        "#titularCartao, #numeroCartao, #cvvCartao, #parcelasCartao"
+
+        )
+
+        // Caso não seja cartão (Pix ou Dinheiro, por exemplo) retorna um array vazio para não exigir esses campos.
         : []
 
-    const camposVazios = [...camposEndereco, ...camposPagamento].filter(campo => campo.value.trim() === "")
+    
+    const camposVazios = [...camposEndereco, ...camposPagamento] // O operador ... (spread operator) pega todos os elementos de camposEndereco e de camposPagamento e junta tudo em uma única lista (array) chamada temporariamente para a filtragem
 
+        // Percorre todos os campos do array.
+        .filter(campo =>
+
+            // campo representa cada input individualmente.
+            // campo.value pega o texto digitado pelo usuário.
+            // trim() remove espaços em branco do início e do fim.
+            // === "" verifica se o campo ficou vazio.
+            // Se retornar true, o campo será adicionado ao array camposVazios.
+            campo.value.trim() === ""
+        )
+
+    // Verifica duas condições:
+    //
+    // !formaPagamento
+    // Significa:
+    // "Nenhuma forma de pagamento foi selecionada."
+    //
+    // camposVazios.length > 0
+    // Significa:
+    // "Existe pelo menos um campo obrigatório vazio."
     if (!formaPagamento || camposVazios.length > 0) {
+
+        // Chama a função responsável por abrir um modal de aviso.
         abrirModalDados(
+
+            // Operador ternário.
+            // Funciona como um if resumido.
             !formaPagamento
+
+                // Se nenhuma forma de pagamento foi escolhida
                 ? "Escolha uma forma de pagamento para continuar."
+
+                // Caso exista pagamento selecionado,
+                // mas algum campo esteja vazio,
+                // mostra esta outra mensagem.
                 : "Preencha todos os campos obrigatórios antes de confirmar a compra."
         )
 
+        // camposVazios[0] Escolhe qual input vai receber a ação (o primeiro que estiver vazio).
+
+        // ?.focus() É a ação em si que joga o foco e o cursor para dentro daquele input vazio para ser preenchido.
+        
+        // O ? evita erro caso não exista nenhum elemento.
         camposVazios[0]?.focus()
+
+        
         return
     }
 
 
 
-    const nome = document.querySelector("#nomeCompleto")?.value.trim() || "Cliente"
+
+    const nome = document.querySelector("#nomeCompleto")?.value.trim() || "Cliente" // Se o usuário não preencheu ou o campo não existir, entra o operador || e ele assume o nome padrão de "Cliente" (value.trim) tira todos os espaços do nome preenchido no campo (no inicio ou no fim, sem ver ou querer).
+    
     const totalCarrinho = getCarrinho().reduce((total, produto) => {
         return total + Number(produto.preco || 0) * Number(produto.quantidade || 0)
-    }, 0)
+    }, 0) 
 
-    const numeroPedido = `EASY-${Math.floor(Math.random() * 9000) + 1000}`
+     // Reduce faz reduzir todos os itens do array ao preço total da compra 
+            
+     // (Return) Garante que o valor é um número e, se estiver vazio ou indefinido, usa 0.
 
-    const listaProdutos = document.querySelector(".listaProdutos")
+    const numeroPedido = `EASY-${Math.floor(Math.random() * 9000) + 1000}`  
+    
+    // `EASY` é fixo atrás de cada nome do pedido
+    // Math.floor arredonda o número sorteado pelo Math.random, que multiplicado por 9000, e o +1000 seria para ser um número gerado de 4 algarismos 
+
+
+    const listaProdutos = document.querySelector(".listaProdutos") // Pega o valor da div no html e salva como constante
 
     if (listaProdutos) {
         listaProdutos.innerHTML = `
@@ -362,19 +444,24 @@ function finalizarPedido() {
 }
 
 function abrirModalDados(mensagem) {
-    const modal = document.querySelector("#modalDadosIncorretos")
-    const mensagemModal = document.querySelector("#mensagemModalDados")
+    const modal = document.querySelector("#modalDadosIncorretos") // Cria constante para aparecer caso campo não seja preenchido corretamente
+    
+    const mensagemModal = document.querySelector("#mensagemModalDados") // Cria constante para aparecer caso campo seja preenchido corretamente
 
-    if (!modal || !mensagemModal) return
+    if (!modal || !mensagemModal)
+        
+        return
 
-    mensagemModal.textContent = mensagem
-    modal.hidden = false
+    mensagemModal.textContent = mensagem // mensagemModal.textContent = mensagem: Pega o texto que enviei quando chamei a função (o parâmetro mensagem) e joga ele para dentro do HTML do modal.
+
+    modal.hidden = false // Hidden faz o modal ficar escondido, como se fosse um (displa: none), mas quando altero o estado dele para falso, deixo de esconder ele, e ele aparece para o usuário.
 }
 
-function fecharModalDados() {
-    const modal = document.querySelector("#modalDadosIncorretos")
+function fecharModalDados() {  // Function para fechar modal
 
-    if (modal) modal.hidden = true
+    const modal = document.querySelector("#modalDadosIncorretos") // Ela vai lá no HTML e busca a caixinha de aviso pelo ID.
+
+    if (modal) modal.hidden = true // Depois de executar a função, altero o estado do hidden do modal para verdadeiro de novo, e volta a ficar escondido.
 }
 
 // Chama a renderização do carrinho ao carregar a página.
