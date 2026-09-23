@@ -66,7 +66,7 @@ function irCarrinho(botao, nomeProduto, preco, imgProduto) {
 
 
 
-    window.location.href = "carrinho.html"
+    window.location.href = "Pages/carrinho.html"
 
 }
 

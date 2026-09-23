@@ -44,7 +44,7 @@ function renderCarrinho() { // Renderiza os itens do carrinho e recalcula o tota
         return `
         <div class="imagin">
             <div class="fundoPro">
-                <img src="${produto.imgProduto}" class="fotoPro">
+                <img src="../${produto.imgProduto}" class="fotoPro">
                 <div class="hiscrita">
                     <p class="nomeProduto pe">
                         Nome: ${produto.nome}
@@ -435,7 +435,7 @@ function finalizarPedido() {  // Cria a função finalizarPedido. Todo o código
             <div class="sucessoPedido">
                 <h2 class="tituloCheckout">Pedido Confirmado</h2>
 
-                // split() divide o valor do nome em arrays, [G, M, T], e pega o primeiro item [0], imprimindo só esse array.
+                
                 <p class="textoPedido">Olá, ${nome.split(" ")[0]}! O seu pedido ${numeroPedido} foi registrado com sucesso.</p>
 
                 <p class="textoPedido">Valor total: R$ ${totalCarrinho.toFixed(2)}</p>
@@ -444,6 +444,7 @@ function finalizarPedido() {  // Cria a função finalizarPedido. Todo o código
             </div>
 
         `
+        // split() divide o valor do nome em arrays, [G, M, T], e pega o primeiro item [0], imprimindo só esse array.
     }
 
     localStorage.removeItem("carrinho")
