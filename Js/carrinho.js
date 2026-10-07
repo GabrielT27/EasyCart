@@ -41,10 +41,16 @@ function renderCarrinho() { // Renderiza os itens do carrinho e recalcula o tota
 
         const precoTotal = Number(produto.preco || 0) * Number(produto.quantidade || 0) // Variável para cálculo do preco Total de cada produto, OU caso não tenha valor, retorna 0
 
+        // ESTUDAR ESSA PARTE
+        const caminhoImagem = String(produto.imgProduto || "")
+        const srcImagem = caminhoImagem.startsWith("https://")
+            ? caminhoImagem
+            : `../${caminhoImagem}`
+
         return `
         <div class="imagin">
             <div class="fundoPro">
-                <img src="../${produto.imgProduto}" class="fotoPro">
+                <img src="${srcImagem}" class="fotoPro" alt="${produto.nome}">
                 <div class="hiscrita">
                     <p class="nomeProduto pe">
                         Nome: ${produto.nome}

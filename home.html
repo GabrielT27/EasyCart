@@ -1,345 +1,284 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
-
+    <meta name="theme-color" content="#0B0C0E">
+    <meta name="description"
+        content="Chronos & Herva — horologia independente e marroquinaria de luxo. Peças autorais, feitas para atravessar o tempo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="Css/home.css">
-
-    <link rel="icon" type="image/png" href="Assets/LogoFooter.png">
-
-    
-
-    <title>EasyCart</title>
-
+    <title>Chronos &amp; Herva — Horologia Independente</title>
 </head>
 
 <body>
+    <header class="site-header">
+        <a class="wordmark" href="#inicio" aria-label="Chronos e Herva — início">
+            <span class="wordmark-symbol" aria-hidden="true">C<span>&amp;</span>H</span>
+            <span class="wordmark-name">CHRONOS <i>&amp;</i> HERVA</span>
+        </a>
 
-    <div style="background-color: rgb(41, 139, 32); padding: 0.67vh; margin: 0;">
+        <nav class="desktop-nav" aria-label="Navegação principal">
+            <a href="#colecao">A coleção</a>
+            <a href="#manifesto">Manifesto</a>
+            <a href="#atelier">O atelier</a>
+        </nav>
 
-    </div>
-
-    <nav>
-
-        <div class="nave">
-            <div class="divisaologo">
-                <img src="Assets/LogoEasyCart.png" alt="" class="logo">
-            </div>
-
-
-            <div class="groupBusca">
-                <svg class="iconBusca" aria-hidden="true" viewBox="0 0 24 24">
-                    <g>
-                        <path
-                            d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
-                        </path>
-                    </g>
+        <div class="header-actions">
+            <a class="cart-link" href="Pages/carrinho.html" aria-label="Abrir carrinho">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3.5 4.5h2l2.1 11.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.5L21 8H6.2"></path>
+                    <circle cx="10" cy="20" r="1"></circle>
+                    <circle cx="18" cy="20" r="1"></circle>
                 </svg>
-                <input placeholder="O que você procura?" type="search" class="inputBusca">
+            </a>
+            <details class="mobile-menu">
+                <summary class="menu-toggle" aria-label="Abrir menu"><span></span><span></span></summary>
+                <div class="drawer-scrim"></div>
+                <aside class="mobile-drawer" id="mobile-drawer" aria-label="Menu mobile">
+                    <div class="drawer-top"><span class="drawer-label">NAVEGAÇÃO</span></div>
+                    <nav>
+                        <a href="#colecao"><span>01</span>A coleção</a>
+                        <a href="#manifesto"><span>02</span>Manifesto</a>
+                        <a href="#atelier"><span>03</span>O atelier</a>
+                        <a href="Pages/carrinho.html"><span>04</span>Sua seleção</a>
+                    </nav>
+                    <p>Objetos para quem reconhece<br>o valor do tempo.</p>
+                </aside>
+            </details>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="inicio">
+            <img class="hero-image"
+                src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&amp;fit=crop&amp;w=2400&amp;q=90"
+                alt="Relógio mecânico de pulso em composição escura">
+            <div class="hero-shade"></div>
+            <div class="hero-content">
+                <p class="eyebrow"><span></span> HOROLOGIA INDEPENDENTE · DESDE 1987</p>
+                <h1>O tempo não<br>se mede. <em>Se sente.</em></h1>
+                <p class="hero-copy">Mecânica precisa. Matéria honesta. Objetos criados para acompanhar uma vida inteira — e tudo o que vem depois.</p>
+                <a class="button button-gold" href="#colecao">Descubra a coleção <span aria-hidden="true">↗</span></a>
             </div>
+            <div class="hero-index"><span>01</span><span class="index-line"></span><span>04</span></div>
+            <a class="scroll-cue" href="#colecao"><span>DESLIZE PARA EXPLORAR</span><i></i></a>
+            <p class="hero-side-note">FEITO COM INTENÇÃO. USADO PARA SEMPRE.</p>
+        </section>
 
-            <div class="menu-links">
-                <h3 class="hiscrita">Início</h3>
-                <h3 class="hiscrita">Sobre nós</h3>
-                <h3 class="hiscrita">Produtos</h3>
-                <h3 class="hiscrita">Contato</h3>
-                <h3 class="hiscrita">Saúde</h3>
-                <h3 class="hiscrita">Alimentação</h3>
-                <h3 class="hiscrita">Dicas</h3>
-            </div>
-
-            <div class="carNav">
-                <a href="Pages/carrinho.html">
-                    <img src="Assets/icons8-carrinho-48.png" alt="">
-                </a>
-            </div>
-        </div>
-
-
-    </nav>
-
-
-    <section class="hero-video">
-        <video autoplay muted loop playsinline>
-            <source src="Assets/YTDown.com_YouTube_PASSAROS-4K-Natureza-Incrivel-Com-Musica_Media_DGfRMD7YiHo_002_720p.mp4"
-                type="video/mp4">
-        </video>
-
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content">
-            <span class="hero-badge">Especialistas em aves e natureza</span>
-            <h1>Descubra espécies exclusivas para o seu espaço</h1>
-            <p>Qualidade, cuidado e uma experiência premium para quem aprecia a beleza e o canto de aves especiais.</p>
-
-            <div class="hero-actions">
-                <a href="#ofertas" class="btn-primary">Ver ofertas</a>
-                <a href="#categorias" class="btn-secondary">Conhecer espécies</a>
-            </div>
-        </div>
-    </section>
-
-    <div id="categorias" class="abaixoNav">
-
-        <div class="individualCat">
-            <img src="Assets/PassarinhoAmarelo.png" alt="" class="imgCa">
-            <h3 class="escritaCat">CANTORES</h3>
-        </div>
-
-        <div class="individualCat">
-            <img src="Assets/Picapau.jpg" alt="" class="imgCa">
-            <h3 class="escritaCat">TREPA-TRONCOS</h3>
-        </div>
-
-        <div class="individualCat">
-            <img src="Assets/trinca2.jpg" alt="" class="imgCa">
-            <h3 class="escritaCat">FRUGÍVEROS</h3>
-        </div>
-
-        <div class="individualCat">
-            <img src="Assets/trincaFerro.jpg" alt="" class="imgCa">
-            <h3 class="escritaCat">SILVESTRES</h3>
-        </div>
-
-        <div class="individualCat">
-            <img src="Assets/passLaranja.jpg" alt="" class="imgCa">
-            <h3 class="escritaCat">NATIVAS</h3>
-        </div>
-
-    </div>
-
-    <section id="ofertas" class="ofertas">
-        <div class="ofertasCabecalho">
-            <div>
-                <p class="eyebrow">Seleção especial</p>
-                <h2>Ofertas do dia</h2>
-            </div>
-
-        </div>
-
-        <!-- PRODUTO 1 -->
-        <div class="produto">
-
-            <span class="seloOferta">OFERTA DO DIA</span>
-
-            <img src="Assets/pepa.jpg" alt="" class="imgProduto">
-
-            <div class="escrita">
-
-                <h1 class="titulo">Trinca Ferro</h1>
-
-                <div class="preco"><small>de R$ 34,90</small>R$ 25,50</div>
-
-                <h3 class="aga">
-                    Conte com a beleza e a potência do canto inconfundível do Trinca-Ferro para trazer mais vida e
-                    harmonia ao seu dia a dia.
-                </h3>
-
-                <h3 class="aga" style="color: black;">Quantidade</h3>
-
-                <div class="inputin">
-
-                    <button onclick="subQtd(this)" class="subQtd menos">
-                        -
-                    </button>
-
-                    <input class="qtd" type="number">
-
-                    <button onclick="addQtd(this)" class="addQtd mais">
-                        +
-                    </button>
-
+        <section class="collection section-wrap" id="colecao">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow"><span></span> SELEÇÃO Nº 04 — 2026</p>
+                    <h2>Precisão em cada <em>detalhe.</em></h2>
                 </div>
-
-                <button class="addCar" onclick="addCar(this)">
-                    Adicionar ao Carrinho
-                    <img src="Assets/icons8-carrinho-48.png" alt="" style="width: 1.6rem;">
-                </button>
-
-                <div class="modais">
-                    <div class="box">
-
-                        <div class="closeCima">
-
-                            <div class="insideX">
-                                <button class="xis" style="border: none; cursor: pointer;" onclick="closeModal(this)">
-                                    x
-                                </button>
-                            </div>
-
-                            <h3>Adicionado ao carrinho com sucesso</h3>
-
-                        </div>
-
-                        <div class="fullbox">
-
-                            <button class="goCar"
-                                onclick="irCarrinho(this, 'Passarinho Trinca Ferro', 25.50, 'Assets/pepa.jpg')">
-                                Ir para o carrinho
-                            </button>
-
-                            <button class="modalClose goCar" onclick="closeModal(this)">
-                                Continuar comprando
-                            </button>
-
-                            <button class="modalClose goCar"
-                                onclick="adicionarCarrinho(this, 'Passarinho Trinca Ferro', 25.50,  'Assets/pepa.jpg')">
-                                Adicionar ao carrinho
-                            </button>
-
-                        </div>
-
+                <p class="section-intro">Uma curadoria de instrumentos e acessórios onde a engenharia encontra o gesto artesanal.</p>
+            </div>
+            <div class="collection-meta">
+                <span>OBJETOS DE EXCEÇÃO</span>
+                <span id="collection-count">04 PEÇAS</span>
+            </div>
+            <div class="product-grid">
+                <article class="product-card produto">
+                    <div class="product-image-wrap">
+                        <img class="product-image" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&amp;fit=crop&amp;w=1400&amp;q=85"
+                            alt="Relógio automático minimalista com caixa de aço" loading="lazy">
+                        <span class="product-index">01 / 04</span>
+                        <button class="product-action" type="button" onclick="addCar(this)">Adquirir peça <span aria-hidden="true">↗</span></button>
                     </div>
-                </div>
-
-                <div class="destaque">
-                    <h3 style="font-size: 1.1rem;">Qualidade Única </h3>
-                    <h3 style="font-size: 1.1rem;">   Viagem Segura </h3>
-                    <h3 style="font-size: 1.1rem;"> Envio Instantâneo</h3>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- PRODUTO 2 -->
-        <div class="produto">
-
-            <span class="seloOferta">OFERTA DO DIA</span>
-
-            <img src="Assets/pingui,.jpg" alt="" class="imgProduto">
-
-            <div class="escrita">
-
-                <h1 class="titulo">Canário da Terra</h1>
-
-                <div class="preco"><small>de R$ 69,90</small>R$ 55,50</div>
-
-                <h3 class="aga">
-                    Leve toda a alegria e a energia contagiante do canto vibrante do Canário-da-Terra para alegrar o seu
-                    dia a dia.
-                </h3>
-
-                <h3 class="aga" style="color: black;">Quantidade</h3>
-
-                <div class="inputin">
-
-                    <button onclick="subQtd(this)" class="subQtd menos">
-                        -
-                    </button>
-
-                    <input class="qtd" type="number">
-
-                    <button onclick="addQtd(this)" class="addQtd mais">
-                        +
-                    </button>
-
-                </div>
-
-                <button class="addCar" onclick="addCar(this)">
-                    Adicionar ao Carrinho
-                    <img src="Assets/icons8-carrinho-48.png" alt="" style="width: 1.6rem;">
-                </button>
-
-                <div class="modais">
-                    <div class="box">
-
-                        <div class="closeCima">
-
-                            <div class="insideX">
-                                <button class="xis" style="border: none; cursor: pointer;" onclick="closeModal(this)">
-                                    x
-                                </button>
-                            </div>
-
-                            <h3>Adicionado ao carrinho com sucesso</h3>
-
+                    <div class="product-info">
+                        <p class="product-category">HOROLOGIA · SÉRIE 01</p>
+                        <div class="product-title-row">
+                            <h3 class="product-title">Monolith</h3>
+                            <span class="product-price">R$ 12.800</span>
                         </div>
-
-                        <div class="fullbox">
-
-                            <button class="goCar"
-                                onclick="irCarrinho(this, 'Pinguim Trinca Ferro', 55.50, 'Assets/pingui,.jpg')">
-                                Ir para o carrinho
-                            </button>
-
-                            <button class="modalClose goCar" onclick="closeModal(this)">
-                                Continuar comprando
-                            </button>
-
-                            <button class="modalClose goCar"
-                                onclick="adicionarCarrinho(this, 'Pinguim Trinca Ferro', 55.50, 'Assets/pingui,.jpg')">
-                                Adicionar ao carrinho
-                            </button>
-
-                        </div>
-
+                        <p class="product-description">A presença silenciosa de um mostrador essencial. O primeiro calibre autoral Chronos &amp; Herva.</p>
+                        <div class="product-specs"><span>Automático</span><span>Aço 316L</span><span>Safira · 50 m</span></div>
+                        <div class="product-quantity"><span>QUANTIDADE</span><div class="inputin">
+                            <button class="quantity-button" type="button" onclick="subQtd(this)" aria-label="Diminuir">−</button>
+                            <input class="qtd" type="number" min="0" value="1" aria-label="Quantidade de Monolith">
+                            <button class="quantity-button" type="button" onclick="addQtd(this)" aria-label="Aumentar">+</button>
+                        </div></div>
                     </div>
-                </div>
+                    <div class="modais" role="dialog" aria-modal="true" aria-label="Adicionar Monolith ao carrinho">
+                        <div class="box">
+                            <button class="modal-x" type="button" onclick="closeModal(this)" aria-label="Fechar">×</button>
+                            <p class="eyebrow"><span></span> SUA SELEÇÃO</p>
+                            <h3>Peça selecionada</h3>
+                            <p>Monolith · R$ 12.800</p>
+                            <div class="modal-actions">
+                                <button type="button" onclick="adicionarCarrinho(this, 'Monolith', 12800, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&amp;fit=crop&amp;w=1400&amp;q=85')">Adicionar ao carrinho</button>
+                                <a href="Pages/carrinho.html" onclick="irCarrinho(this, 'Monolith', 12800, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&amp;fit=crop&amp;w=1400&amp;q=85')">Ir para o carrinho</a>
+                                <button type="button" class="modal-continue" onclick="closeModal(this)">Continuar explorando</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
 
-                <div class="destaque">
-                    <h3 style="font-size: 1.1rem;">Qualidade Única</h3>
-                    <h3 style="font-size: 1.1rem;"> Viagem Segura</h3>
-                    <h3 style="font-size: 1.1rem;"> Envio Instantâneo</h3>
-                </div>
+                <article class="product-card produto">
+                    <div class="product-image-wrap">
+                        <img class="product-image" src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&amp;fit=crop&amp;w=1400&amp;q=85"
+                            alt="Relógio de pulso com pulseira escura em couro" loading="lazy">
+                        <span class="product-index">02 / 04</span>
+                        <button class="product-action" type="button" onclick="addCar(this)">Adquirir peça <span aria-hidden="true">↗</span></button>
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">MARROQUINARIA · FEITO À MÃO</p>
+                        <div class="product-title-row">
+                            <h3 class="product-title">Pulseira Cordovan</h3>
+                            <span class="product-price">R$ 980</span>
+                        </div>
+                        <p class="product-description">Couro de curtimento vegetal, selecionado por sua textura e costurado ponto a ponto no atelier.</p>
+                        <div class="product-specs"><span>Shell Cordovan</span><span>Costura manual</span><span>Intercambiável</span></div>
+                        <div class="product-quantity"><span>QUANTIDADE</span><div class="inputin">
+                            <button class="quantity-button" type="button" onclick="subQtd(this)" aria-label="Diminuir">−</button>
+                            <input class="qtd" type="number" min="0" value="1" aria-label="Quantidade de Pulseira Cordovan">
+                            <button class="quantity-button" type="button" onclick="addQtd(this)" aria-label="Aumentar">+</button>
+                        </div></div>
+                    </div>
+                    <div class="modais" role="dialog" aria-modal="true" aria-label="Adicionar Pulseira Cordovan ao carrinho">
+                        <div class="box">
+                            <button class="modal-x" type="button" onclick="closeModal(this)" aria-label="Fechar">×</button>
+                            <p class="eyebrow"><span></span> SUA SELEÇÃO</p>
+                            <h3>Peça selecionada</h3>
+                            <p>Pulseira Cordovan · R$ 980</p>
+                            <div class="modal-actions">
+                                <button type="button" onclick="adicionarCarrinho(this, 'Pulseira Cordovan', 980, 'https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&amp;fit=crop&amp;w=1400&amp;q=85')">Adicionar ao carrinho</button>
+                                <a href="Pages/carrinho.html" onclick="irCarrinho(this, 'Pulseira Cordovan', 980, 'https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&amp;fit=crop&amp;w=1400&amp;q=85')">Ir para o carrinho</a>
+                                <button type="button" class="modal-continue" onclick="closeModal(this)">Continuar explorando</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
 
+                <article class="product-card produto">
+                    <div class="product-image-wrap">
+                        <img class="product-image" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&amp;fit=crop&amp;w=1400&amp;q=85"
+                            alt="Bolsa de couro artesanal em composição de estúdio" loading="lazy">
+                        <span class="product-index">03 / 04</span>
+                        <button class="product-action" type="button" onclick="addCar(this)">Adquirir peça <span aria-hidden="true">↗</span></button>
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">MARROQUINARIA · SÉRIE 02</p>
+                        <div class="product-title-row">
+                            <h3 class="product-title">Estojo de Viagem</h3>
+                            <span class="product-price">R$ 2.450</span>
+                        </div>
+                        <p class="product-description">Estrutura rígida revestida em couro, interior em camurça natural para proteger o que importa.</p>
+                        <div class="product-specs"><span>Couro integral</span><span>Forro em camurça</span><span>2 relógios</span></div>
+                        <div class="product-quantity"><span>QUANTIDADE</span><div class="inputin">
+                            <button class="quantity-button" type="button" onclick="subQtd(this)" aria-label="Diminuir">−</button>
+                            <input class="qtd" type="number" min="0" value="1" aria-label="Quantidade de Estojo de Viagem">
+                            <button class="quantity-button" type="button" onclick="addQtd(this)" aria-label="Aumentar">+</button>
+                        </div></div>
+                    </div>
+                    <div class="modais" role="dialog" aria-modal="true" aria-label="Adicionar Estojo de Viagem ao carrinho">
+                        <div class="box">
+                            <button class="modal-x" type="button" onclick="closeModal(this)" aria-label="Fechar">×</button>
+                            <p class="eyebrow"><span></span> SUA SELEÇÃO</p>
+                            <h3>Peça selecionada</h3>
+                            <p>Estojo de Viagem · R$ 2.450</p>
+                            <div class="modal-actions">
+                                <button type="button" onclick="adicionarCarrinho(this, 'Estojo de Viagem', 2450, 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&amp;fit=crop&amp;w=1400&amp;q=85')">Adicionar ao carrinho</button>
+                                <a href="Pages/carrinho.html" onclick="irCarrinho(this, 'Estojo de Viagem', 2450, 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&amp;fit=crop&amp;w=1400&amp;q=85')">Ir para o carrinho</a>
+                                <button type="button" class="modal-continue" onclick="closeModal(this)">Continuar explorando</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card produto">
+                    <div class="product-image-wrap">
+                        <img class="product-image" src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&amp;fit=crop&amp;w=1400&amp;q=85"
+                            alt="Caderno de capa escura e acabamento artesanal" loading="lazy">
+                        <span class="product-index">04 / 04</span>
+                        <button class="product-action" type="button" onclick="addCar(this)">Adquirir peça <span aria-hidden="true">↗</span></button>
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">ATELIER · EDIÇÃO LIMITADA</p>
+                        <div class="product-title-row">
+                            <h3 class="product-title">Caderno Horológico</h3>
+                            <span class="product-price">R$ 420</span>
+                        </div>
+                        <p class="product-description">Para ideias que merecem tomar forma. Papel vergê e capa em couro encerado que envelhece com você.</p>
+                        <div class="product-specs"><span>Papel vergê</span><span>Couro encerado</span><span>Edição numerada</span></div>
+                        <div class="product-quantity"><span>QUANTIDADE</span><div class="inputin">
+                            <button class="quantity-button" type="button" onclick="subQtd(this)" aria-label="Diminuir">−</button>
+                            <input class="qtd" type="number" min="0" value="1" aria-label="Quantidade de Caderno Horológico">
+                            <button class="quantity-button" type="button" onclick="addQtd(this)" aria-label="Aumentar">+</button>
+                        </div></div>
+                    </div>
+                    <div class="modais" role="dialog" aria-modal="true" aria-label="Adicionar Caderno Horológico ao carrinho">
+                        <div class="box">
+                            <button class="modal-x" type="button" onclick="closeModal(this)" aria-label="Fechar">×</button>
+                            <p class="eyebrow"><span></span> SUA SELEÇÃO</p>
+                            <h3>Peça selecionada</h3>
+                            <p>Caderno Horológico · R$ 420</p>
+                            <div class="modal-actions">
+                                <button type="button" onclick="adicionarCarrinho(this, 'Caderno Horológico', 420, 'https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&amp;fit=crop&amp;w=1400&amp;q=85')">Adicionar ao carrinho</button>
+                                <a href="Pages/carrinho.html" onclick="irCarrinho(this, 'Caderno Horológico', 420, 'https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&amp;fit=crop&amp;w=1400&amp;q=85')">Ir para o carrinho</a>
+                                <button type="button" class="modal-continue" onclick="closeModal(this)">Continuar explorando</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
+        </section>
 
-        </div>
+        <section class="manifesto" id="manifesto">
+            <div class="manifesto-image">
+                <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"
+                    alt="Detalhe de um relógio mecânico artesanal">
+                <span class="image-caption">CALIBRE C&amp;H · SÉRIE 01</span>
+            </div>
+            <div class="manifesto-copy">
+                <p class="eyebrow"><span></span> UMA OUTRA RELAÇÃO COM O TEMPO</p>
+                <h2>Feito para durar.<br><em>Feito para importar.</em></h2>
+                <p>Em um mundo que não para, escolhemos fazer menos — e fazer melhor. Cada peça nasce de uma obsessão por proporção, material e precisão mecânica.</p>
+                <p>Não perseguimos tendências. Criamos futuros herdeiros.</p>
+                <a class="text-link" href="#atelier">Conheça nosso manifesto <span aria-hidden="true">↗</span></a>
+                <div class="signature">C&amp;H <span>—</span> 1987</div>
+            </div>
+        </section>
 
-    </section>
-
-
-
-    <!-- FOOTER -->
+        <section class="atelier" id="atelier">
+            <div class="atelier-rule"></div>
+            <p class="eyebrow"><span></span> O COMPROMISSO CHRONOS &amp; HERVA</p>
+            <div class="atelier-grid">
+                <h2>O luxo está<br>no que <em>permanece.</em></h2>
+                <div class="atelier-details">
+                    <p>Desenhado em pequenos lotes. Montado com cuidado. Acompanhado por uma garantia de cinco anos e assistência vitalícia no nosso atelier.</p>
+                    <a class="text-link" href="mailto:atelier@chronoseherva.com">Fale com o atelier <span aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+            <div class="service-points">
+                <div><span>01</span><p>Envio segurado<br>para todo o Brasil</p></div>
+                <div><span>02</span><p>Garantia internacional<br>de cinco anos</p></div>
+                <div><span>03</span><p>Assistência para<br>toda a vida</p></div>
+            </div>
+        </section>
+    </main>
 
     <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <img src="Assets/LogoFooter.png" alt="Logo EasyCart" class="footer-logo">
-                <h3 style="color: aliceblue; font-size: x-large;">Casa Das Aves</h3>
-                <p>Produtos especiais para quem ama aves, natureza e qualidade.</p>
-            </div>
-
-            <div class="footer-links">
-                <h4>Menu</h4>
-                <a href="#">Início</a>
-                <a href="#">Sobre nós</a>
-                <a href="#">Produtos</a>
-                <a href="#">Contato</a>
-            </div>
-
-            <div class="footer-links">
-                <h4>Contato</h4>
-                <a href="#">(19) 99578-4152</a>
-                <a href="#">easycart@gmail.com</a>
-                <a href="#">Av. das Aves, 173</a>
-            </div>
-
-            <div class="footer-links">
-                <h4>Redes</h4>
-                <a href="#">Instagram</a>
-                <a href="#">Facebook</a>
-                <a href="#">WhatsApp</a>
-            </div>
-        </div>
-
+        <a class="wordmark footer-wordmark" href="#inicio">
+            <span class="wordmark-symbol" aria-hidden="true">C<span>&amp;</span>H</span>
+            <span class="wordmark-name">CHRONOS <i>&amp;</i> HERVA</span>
+        </a>
+        <p>Horologia independente.<br>Objetos para atravessar o tempo.</p>
         <div class="footer-bottom">
-            <span>© 2026 Casa das Aves. Todos os direitos reservados.</span>
+            <span>© 2026 CHRONOS &amp; HERVA</span>
+            <span>FEITO COM TEMPO, NO BRASIL.</span>
+            <a href="#inicio">VOLTAR AO TOPO ↑</a>
         </div>
     </footer>
 
-    <script src="Js/home.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-
+    <div class="toast" role="status" aria-live="polite"></div>
+    <script src="Js/home.js" defer></script>
 </body>
 
 </html>

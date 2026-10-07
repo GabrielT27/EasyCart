@@ -626,3 +626,214 @@ input[type="number"] {
         text-align: center;
     }
 }
+
+body {
+    background: #0b0c0e;
+    color: #f2f3f5;
+    font-family: "DM Sans", "Helvetica Neue", sans-serif;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.08);
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: blur(12px);
+}
+
+.aga1,
+.tituloCheckout {
+    color: #f2f3f5;
+    font-family: "Instrument Serif", "Times New Roman", serif;
+    font-weight: 400;
+}
+
+.aga1 {
+    font-size: clamp(2.6rem, 6vw, 4rem);
+}
+
+.acoesCarrinho,
+.resumoCarrinho,
+.blocoPagamento {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.pe,
+.campoFormulario,
+.conteudoOpcaoPagamento,
+.conteudoOpcaoPagamento small,
+.campoFormularioCompleto,
+.inputin .preco {
+    color: #9ba1a6;
+}
+
+.nomeProduto {
+    color: #f2f3f5;
+    font-family: "Instrument Serif", "Times New Roman", serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.fundoPro,
+.areaCheckout,
+.opcaoPagamento,
+.campoFormulario input,
+.campoFormulario select,
+.mensagemPagamento,
+.carrinhoVazio {
+    border-color: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    color: #f2f3f5;
+}
+
+.carrinhoVazio {
+    border-style: dashed;
+    color: #9ba1a6;
+}
+
+.precoTotal {
+    color: #f2f3f5;
+}
+
+.campoFormulario input::placeholder {
+    color: rgba(155, 161, 166, 0.6);
+}
+
+.campoFormulario input:focus,
+.campoFormulario select:focus,
+input:focus {
+    border-color: #c5a059;
+    background: #111315;
+    color: #f2f3f5;
+    box-shadow: 0 0 0 2px rgba(197, 160, 89, 0.15);
+}
+
+.opcaoPagamento:has(input:checked) {
+    border-color: #c5a059;
+    background: rgba(197, 160, 89, 0.08);
+}
+
+.opcaoPagamento input {
+    accent-color: #c5a059;
+}
+
+.mensagemPagamento {
+    border-style: dashed;
+    color: #9ba1a6;
+}
+
+.voltarButton,
+.cleanCar,
+.continuarButton,
+.botaoConfirmarPedido,
+.botaoModal {
+    width: auto;
+    min-height: 2.75rem;
+    padding: 0.75rem 1.2rem;
+    border: 1px solid #c5a059;
+    border-radius: 0;
+    background: #c5a059;
+    color: #0b0c0e;
+    font-family: "DM Sans", "Helvetica Neue", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: color 350ms ease, background 350ms ease, transform 350ms ease;
+}
+
+.voltarButton:hover,
+.cleanCar:hover,
+.continuarButton:hover,
+.botaoConfirmarPedido:hover,
+.botaoModal:hover {
+    transform: translateY(-2px);
+    background: transparent;
+    color: #c5a059;
+}
+
+.cleanCar,
+.removerItem {
+    border-color: rgba(255, 255, 255, 0.16);
+    background: transparent;
+    color: #9ba1a6;
+}
+
+.cleanCar:hover,
+.removerItem:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #f2f3f5;
+}
+
+.removerItem {
+    width: fit-content;
+    height: auto;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 0;
+}
+
+.mais,
+.menos {
+    border-color: rgba(197, 160, 89, 0.7);
+    background: transparent;
+    color: #c5a059;
+}
+
+.mais:hover,
+.menos:hover {
+    background: #c5a059;
+    color: #0b0c0e;
+}
+
+.inputin input {
+    background: #111315;
+    color: #f2f3f5;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.resumoCarrinho .precoTotal {
+    color: #c5a059;
+}
+
+.sucessoPedido {
+    border-color: rgba(197, 160, 89, 0.4);
+    background: rgba(197, 160, 89, 0.06);
+    color: #f2f3f5;
+}
+
+.fundoModal {
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(8px);
+}
+
+.modalDados {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    background: #111315;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.4);
+}
+
+.modalDados h2 {
+    color: #f2f3f5;
+    font-family: "Instrument Serif", "Times New Roman", serif;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.modalDados p,
+.fecharModal {
+    color: #9ba1a6;
+}
+
+.iconeModal {
+    background: #c5a059;
+    color: #0b0c0e;
+}
+
+@media (max-width: 600px) {
+    .voltarButton,
+    .cleanCar,
+    .continuarButton,
+    .botaoConfirmarPedido {
+        width: 100%;
+    }
+}
