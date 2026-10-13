@@ -122,14 +122,14 @@ span {
 }
 
 .desktop-nav a {
-    transition: color 250ms ease;
+    transition: color 300ms ease;
 }
 
 .desktop-nav a:hover,
-.footer-bottom a:hover {
+.desktop-nav a:focus-visible {
     color: var(--champagne);
     text-decoration: underline;
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     transition: 0.3s;
 }
 
@@ -138,6 +138,7 @@ span {
     justify-content: flex-end;
     align-items: center;
     gap: 1.55rem;
+    
 }
 
 .search-control {
@@ -150,7 +151,7 @@ span {
 }
 
 .search-control:focus-within {
-    border-color: var(--champagne);
+    border-color: var(--platinum)   ;
 }
 
 .search-control svg,
@@ -163,6 +164,7 @@ span {
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-width: 1.3;
+    
     
     
 }
@@ -204,17 +206,19 @@ span {
     height: 3rem;
     border: 2px solid transparent;
     border-radius: 50%;
-    border-color: var(--champagne);
+    border-color: var(--platinum);
     background-color: #00000086;
     transform: 0.5s;
+    border: 2.3px solid #c5a059;
 }
 
 .cart-link:hover,
 .cart-link:focus-visible {
-    border-color: var(--champagne);
+    border-color: var(--platinum);
     background-color: #00000057;;
     transform: translateY(-2px);
     transition: 0.4s;
+    border: 2.3px solid #c5a059;
 }
 
 .cart-count {
@@ -227,7 +231,7 @@ span {
     height: 1rem;
     padding: 0 0.2rem;
     border-radius: 1rem;
-    background: var(--champagne);
+    background: var(--platinum);
     color: var(--ink);
     font-size: 0.58rem;
     font-weight: 700;
@@ -282,7 +286,7 @@ span {
     align-items: center;
     gap: 0.7rem;
     margin: 0;
-    color: var(--titanium);
+    color: var(--champagne);
     font-size: 0.90rem;
     font-weight: 500;
     letter-spacing: 0.19em;
@@ -518,7 +522,7 @@ span {
     top: 1rem;
     left: 1rem;
     color: var(--platinum);
-    font-size: 0.57rem;
+    font-size: 0.77rem;
     letter-spacing: 0.12em;
     text-shadow: 0 1px 8px #000;
 }
@@ -532,13 +536,13 @@ span {
     justify-content: space-between;
     gap: 1.3rem;
     min-width: 9.2rem;
-    min-height: 2.6rem;
+    min-height: 3.6rem;
     padding: 0 0.85rem;
     border: 1px solid rgba(197, 160, 89, 0.85);
     background: rgba(11, 12, 14, 0.78);
     color: var(--platinum);
     cursor: pointer;
-    font-size: 0.64rem;
+    font-size: 0.94rem;
     opacity: 0;
     transform: translateY(0.65rem);
     transition: opacity 500ms var(--ease-luxury), transform 500ms var(--ease-luxury), background 350ms ease;
@@ -656,7 +660,7 @@ span {
     bottom: 2rem;
     left: 2.5rem;
     color: rgba(242, 243, 245, 0.75);
-    font-size: 0.55rem;
+    font-size: 0.75rem;
     letter-spacing: 0.16em;
 }
 
@@ -695,6 +699,22 @@ span {
     color: var(--champagne);
     font-size: 0.68rem;
     letter-spacing: 0.04em;
+    transition: color 300ms ease, border-color 300ms ease;
+}
+
+.text-link span {
+    transition: transform 300ms var(--ease-luxury);
+}
+
+.text-link:hover,
+.text-link:focus-visible {
+    border-color: var(--platinum);
+    color: var(--platinum);
+}
+
+.text-link:hover span,
+.text-link:focus-visible span {
+    transform: translate(3px, -3px);
 }
 
 .signature {
@@ -739,7 +759,7 @@ span {
     max-width: 390px;
     margin: 0;
     color: rgba(242, 243, 245, 0.68);
-    font-size: 0.84rem;
+    font-size: 1rem;
     line-height: 1.9;
 }
 
@@ -760,24 +780,27 @@ span {
 
 .service-points span {
     color: var(--champagne);
-    font-size: 0.58rem;
+    font-size: 1rem;
 }
 
 .service-points p {
     margin: 0;
     color: rgb(242, 243, 245);
-    font-size: 0.72rem;
+    font-size: 1rem;
     line-height: 1.7;
 }
 
 .site-footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: start;
-    gap: 2rem;
-    padding: 3rem 8.3% 1.4rem;
-    border-top: 1px solid var(--line);
-    background: var(--champagne);
+    align-items: center;
+    gap: 2.5rem;
+    padding: 3.5rem 8.3% 1.5rem;
+    border-top: 1px solid rgba(197, 160, 89, 0.55);
+    background:
+        radial-gradient(ellipse at 12% 0%, rgba(197, 160, 89, 0.09), transparent 45%),
+        linear-gradient(135deg, #151719 0%, var(--ink) 72%);
+    color: var(--platinum);
 }
 
 .footer-wordmark {
@@ -786,28 +809,47 @@ span {
 
 .site-footer > p {
     justify-self: end;
+    max-width: 19rem;
     margin: 0;
-    color: rgb(242, 243, 245);
-    font-size: 0.69rem;
-    line-height: 1.8;
+    color: var(--platinum);
+    font-size: 0.82rem;
+    line-height: 1.9;
     text-align: right;
 }
 
 .footer-bottom {
     display: flex;
     grid-column: 1 / -1;
+    align-items: center;
     justify-content: space-between;
-    gap: 1rem;
-    margin-top: 2rem;
-    padding-top: 1.2rem;
-    border-top: 1px solid var(--line);
-    color: rgba(155, 161, 166, 0.65);
-    font-size: 0.54rem;
-    letter-spacing: 0.1em;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+    padding-top: 1.35rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--platinum);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
 }
 
 .footer-bottom a {
-    transition: color 250ms ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid rgba(197, 160, 89, 0.5);
+    color: var(--platinum);
+    transition: color 250ms ease, background-color 250ms ease, border-color 250ms ease;
+}
+
+.footer-bottom a:hover {
+    border-color: var(--champagne);
+    background: var(--champagne);
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.footer-bottom a:focus-visible {
+    outline-color: var(--champagne);
 }
 
 .toast {
@@ -1248,17 +1290,21 @@ span {
 
     .site-footer {
         grid-template-columns: 1fr;
-        padding: 2.5rem 1.5rem 1.2rem;
+        gap: 1.5rem;
+        padding: 2.8rem 1.5rem 1.2rem;
     }
 
     .site-footer > p {
         justify-self: start;
+        font-size: 0.78rem;
         text-align: left;
     }
 
     .footer-bottom {
         flex-wrap: wrap;
-        margin-top: 1rem;
+        justify-content: flex-start;
+        gap: 0.8rem 1.2rem;
+        margin-top: 0;
         line-height: 1.6;
     }
 
@@ -1296,7 +1342,7 @@ span {
 
 .product-quantity > span {
     color: var(--titanium);
-    font-size: 0.55rem;
+    font-size: 0.85rem;
     letter-spacing: 0.14em;
 }
 
